@@ -4,7 +4,7 @@ const fontSize = {
   small: 12,
   medium: 14,
 };
-const played = [0, 0, 0];
+const played = [0, 0, 0, 0];
 const vara = [];
 const bodyFontSize = Math.max(16 * ratio, 10);
 const posX = Math.max(80 * ratio, 30);
@@ -18,15 +18,15 @@ const pages = document.getElementById("pages");
 const data = [
   {
     date: "15 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere odio corporis, beatae praesentium commodi unde voluptatibus! Libero impedit excepturi est culpa sunt? Recusandae iste delectus at sit repudiandae esse totam.",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
   {
     date: "16 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere odio corporis, beatae praesentium commodi unde voluptatibus! Libero impedit excepturi est culpa sunt? Recusandae iste delectus at sit repudiandae esse totam.",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
   {
     date: "17 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere odio corporis, beatae praesentium commodi unde voluptatibus! Libero impedit excepturi est culpa sunt? Recusandae iste delectus at sit repudiandae esse totam.",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
 ];
 
@@ -41,31 +41,33 @@ function shorten(str, separator = " ") {
 }
 
 function generateTxt(item, continuation = false) {
-  vara[currentPage - 1] = new Vara(
-    `#vara-container${currentPage}`,
-    "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
-    [
-      !continuation && {
-        text: item.date,
-        textAlign: "right",
-        y: 20,
-        x: -30,
-        delay: 500,
-        duration: 1500,
-        fontSize: fontSize.small,
-      },
+  vara.push(
+    new Vara(
+      `#vara-container${currentPage}`,
+      "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
+      [
+        !continuation && {
+          text: item.date,
+          textAlign: "right",
+          y: 20,
+          x: -30,
+          delay: 500,
+          duration: 1500,
+          fontSize: fontSize.small,
+        },
+        {
+          text: item.txt,
+          y: 40,
+          x: posX,
+          duration: 4000,
+        },
+      ],
       {
-        text: item.txt,
-        y: 40,
-        x: posX,
-        duration: 4000,
-      },
-    ],
-    {
-      strokeWidth: 2,
-      fontSize: fontSize.medium,
-      autoAnimation: false,
-    }
+        strokeWidth: 2,
+        fontSize: fontSize.medium,
+        autoAnimation: false,
+      }
+    )
   );
 }
 
