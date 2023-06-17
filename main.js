@@ -114,11 +114,11 @@ function subText(item, index) {
   f(item);
 }
 
-function calTotalPages(item) {
+function calcTotalPages(item) {
   if (item.txt.length > maxLetters) {
     totalPages += 1;
     const newItem = { ...item, txt: shorten(item.txt) };
-    calTotalPages(newItem);
+    calcTotalPages(newItem);
   } else {
     totalPages += 1;
   }
@@ -126,7 +126,7 @@ function calTotalPages(item) {
 
 function main() {
   data.forEach((value) => {
-    calTotalPages(value);
+    calcTotalPages(value);
   });
 
   data.forEach((value, index) => {
