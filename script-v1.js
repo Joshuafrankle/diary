@@ -31,7 +31,7 @@ const data = [
 ];
 
 const lastIndex = data.length - 1;
-let totalPages = data.length + 1;
+const totalPages = data.length + 1;
 let currentPage = 0;
 
 function htmlCss(isFirst, isLast) {
