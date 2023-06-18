@@ -221,11 +221,11 @@ body {
   transform: translateZ(0.1px);
 } */
 
-.book .page-2 #vara-container2 {
+/* .book .page-2 #vara-container2 {
   width: 100%;
   height: 100%;
   padding: 1em;
-}
+} */
 #link {
   position: absolute;
   bottom: 10px;

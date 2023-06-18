@@ -19,14 +19,16 @@ const data = [
   {
     date: "15 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
   },
   {
-    date: "16 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: true,
   },
   {
     date: "17 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
   },
 ];
 
@@ -84,27 +86,30 @@ data.forEach((_, index) => {
 document.head.appendChild(styles);
 
 data.forEach((val, index) => {
+  const arr = [
+    {
+      text: val.txt,
+      y: 20,
+      x: posX,
+      duration: 1000,
+    },
+  ];
+  const datObj = {
+    text: val.date,
+    textAlign: "right",
+    delay: 500,
+    y: 20,
+    x: -30,
+    duration: 1000,
+    fontSize: fontSize.small,
+  };
+  if (!val.continuation) arr.unshift(datObj);
+
   vara.push(
     new Vara(
       `#vara-container${index + 1}`,
       "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
-      [
-        {
-          text: val.date,
-          textAlign: "right",
-          delay: 500,
-          y: 20,
-          x: -30,
-          duration: 1000,
-          fontSize: fontSize.small,
-        },
-        {
-          text: val.txt,
-          y: 40,
-          x: posX,
-          duration: 1000,
-        },
-      ],
+      arr,
       {
         strokeWidth: 2,
         fontSize: fontSize.medium,
