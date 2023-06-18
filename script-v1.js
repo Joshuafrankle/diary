@@ -44,9 +44,6 @@ function htmlCss(isFirst, isLast) {
   }.book .paper.first .front {
     transform: translateZ(0.${totalPages}px);
   }`;
-    page = `<div class="side"></div>
-  <div class="bottom"></div>
-  <div class="shadow"></div>`;
   }
 
   page += `<div class="page-${currentPage} paper">
@@ -68,6 +65,12 @@ ${
   }`
 }
 `;
+
+  if (isLast) {
+    page += `<div class="side"></div>
+  <div class="bottom"></div>
+  <div class="shadow"></div>`;
+  }
 
   styles.innerHTML += style;
   pages.innerHTML += page;
