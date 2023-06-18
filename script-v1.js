@@ -13,7 +13,7 @@ fontSize.small = Math.max(fontSize.small * ratio, 7);
 fontSize.medium = Math.max(fontSize.medium * ratio, 10);
 
 const pages = document.getElementById("pages");
-const style = document.createElement("style");
+const styles = document.createElement("style");
 
 const data = [
   {
@@ -34,46 +34,51 @@ const lastIndex = data.length - 1;
 let totalPages = data.length + 1;
 let currentPage = 0;
 
-function htmlCss(islast = false) {
-  const page = `<div class="page-${currentPage} paper">
-  <div class="page ${islast && "last"} front contents">
+function htmlCss(isFirst, isLast) {
+  let page = "";
+  let style = "";
+
+  if (isFirst) {
+    style = `.book .paper.first {
+    z-index: ${totalPages};
+  }.book .paper.first .front {
+    transform: translateZ(0.${totalPages}px);
+  }`;
+    page = `<div class="side"></div>
+  <div class="bottom"></div>
+  <div class="shadow"></div>`;
+  }
+
+  page += `<div class="page-${currentPage} paper">
+  <div class="page ${isLast && "last"} front contents">
     <div id="vara-container${currentPage}"></div>
   </div>
   <div class="page back"></div>
 </div>`;
 
-  const styles = `.book .paper.page-${currentPage} {
+  style += `.book .paper.page-${currentPage} {
   z-index: ${totalPages - currentPage};
 }.book .paper.page-${currentPage} .front {
   transform: translateZ(0.${totalPages - currentPage}px);
 }
 ${
-  !islast &&
+  !isLast &&
   `.book .open.page-${currentPage} .back {
     transform: translateZ(-${currentPage}px);
   }`
 }
 `;
-  if (islast) {
-    style.innerHTML += `.book .paper.first {
-    z-index: ${totalPages};
-  }.book .paper.first .front {
-    transform: translateZ(0.${totalPages}px);
-  }`;
-    pages.innerHTML += `<div class="side"></div>
-  <div class="bottom"></div>
-  <div class="shadow"></div>`;
-  }
-  style.innerHTML += styles;
+
+  styles.innerHTML += style;
   pages.innerHTML += page;
 }
 
 data.forEach((_, index) => {
   currentPage += 1;
-  htmlCss(index == lastIndex);
+  htmlCss(index == 0, index == lastIndex);
 });
 
-document.head.appendChild(style);
+document.head.appendChild(styles);
 
 data.forEach((val, index) => {
   vara.push(
