@@ -170,62 +170,6 @@ body {
   background: #e1e1e1;
 }
 
-/* .book .open.second .back {
-  transform: translateZ(-1px);
-}
-.book .open.third .back {
-  transform: translateZ(-2px);
-}
-.book .open.fourth .back {
-  transform: translateZ(-3px);
-}
-.book .open.fifth .back {
-  transform: translateZ(-4px);
-}
-
-.book .paper.first {
-  z-index: 8;
-}
-.book .paper.second {
-  z-index: 7;
-}
-.book .paper.third {
-  z-index: 6;
-}
-.book .paper.fourth {
-  z-index: 5;
-}
-.book .paper.fifth {
-  z-index: 4;
-}
-.book .paper.sixth {
-  z-index: 10;
-}
-
-.book .paper.first .front {
-  transform: translateZ(0.6px);
-}
-.book .paper.second .front {
-  transform: translateZ(0.5px);
-}
-.book .paper.third .front {
-  transform: translateZ(0.4px);
-}
-.book .paper.fourth .front {
-  transform: translateZ(0.3px);
-}
-.book .paper.fifth .front {
-  transform: translateZ(0.2px);
-}
-.book .paper.sixth .front {
-  transform: translateZ(0.1px);
-} */
-
-/* .book .page-2 #vara-container2 {
-  width: 100%;
-  height: 100%;
-  padding: 1em;
-} */
 #link {
   position: absolute;
   bottom: 10px;

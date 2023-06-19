@@ -4,7 +4,7 @@ const fontSize = {
   small: 12,
   medium: 14,
 };
-const played = [0, 0, 0];
+const played = [];
 const vara = [];
 const bodyFontSize = Math.max(16 * ratio, 10);
 const posX = Math.max(80 * ratio, 30);
@@ -24,6 +24,46 @@ const data = [
   {
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: true,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
+  },
+  {
+    date: "17 Jan 2019",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    continuation: false,
   },
   {
     date: "17 Jan 2019",
@@ -117,6 +157,7 @@ data.forEach((val, index) => {
       }
     )
   );
+  played.push(0);
 });
 
 vara[lastIndex].ready(function () {
