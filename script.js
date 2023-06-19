@@ -26,7 +26,7 @@ const data = [
     continuation: true,
   },
   {
-    date: "17 Jan 2019",
+    date: "16 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
@@ -36,37 +36,27 @@ const data = [
     continuation: false,
   },
   {
-    date: "17 Jan 2019",
+    date: "18 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
   {
-    date: "17 Jan 2019",
+    date: "19 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
   {
-    date: "17 Jan 2019",
+    date: "20 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
   {
-    date: "17 Jan 2019",
+    date: "21 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
   {
-    date: "17 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
-    continuation: false,
-  },
-  {
-    date: "17 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
-    continuation: false,
-  },
-  {
-    date: "17 Jan 2019",
+    date: "22 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
@@ -82,36 +72,39 @@ function htmlCss(isFirst, isLast) {
 
   if (isFirst) {
     style = `.book .paper.first {
-    z-index: ${totalPages};
-  }.book .paper.first .front {
-    transform: translateZ(0.${totalPages}px);
-  }`;
+              z-index: ${totalPages};
+            }
+            .book .paper.first .front {
+              transform: translateZ(0.${totalPages}px);
+            }`;
   }
 
   page += `<div class="page-${currentPage} paper">
-  <div class="page ${isLast && "last"} front contents">
-    <div id="vara-container${currentPage}"></div>
-  </div>
-  <div class="page back"></div>
-</div>`;
+            <div class="page ${isLast ? "last" : ""} front contents">
+              <div id="vara-container${currentPage}"></div>
+            </div>
+            <div class="page back"></div>
+           </div>`;
 
   style += `.book .paper.page-${currentPage} {
-  z-index: ${totalPages - currentPage};
-}.book .paper.page-${currentPage} .front {
-  transform: translateZ(0.${totalPages - currentPage}px);
-}
-${
-  !isLast &&
-  `.book .open.page-${currentPage} .back {
-    transform: translateZ(-${currentPage}px);
-  }`
-}
-`;
+              z-index: ${totalPages - currentPage};
+            }
+            .book .paper.page-${currentPage} .front {
+              transform: translateZ(0.${totalPages - currentPage}px);
+            }
+            ${
+              !isLast
+                ? `.book .open.page-${currentPage} .back {
+              transform: translateZ(-${currentPage}px);
+              }`
+                : ""
+            }
+  `;
 
   if (isLast) {
     page += `<div class="side"></div>
-  <div class="bottom"></div>
-  <div class="shadow"></div>`;
+              <div class="bottom"></div>
+            <div class="shadow"></div>`;
   }
 
   styles.innerHTML += style;
@@ -120,7 +113,7 @@ ${
 
 data.forEach((_, index) => {
   currentPage += 1;
-  htmlCss(index == 0, index == lastIndex);
+  htmlCss(index === 0, index === lastIndex);
 });
 
 document.head.appendChild(styles);
