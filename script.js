@@ -72,7 +72,7 @@ function htmlCss(isFirst, isLast) {
               z-index: ${totalPages};
             }
             .book .paper.first .front {
-              transform: translateZ(${totalPages / 10}px);
+              transform: translateZ(${totalPages}px);
             }`;
   }
 
@@ -87,7 +87,7 @@ function htmlCss(isFirst, isLast) {
               z-index: ${totalPages - currentPage};
             }
             .book .paper.page-${currentPage} .front {
-              transform: translateZ(${(totalPages - currentPage) / 10}px);
+              transform: translateZ(${totalPages - currentPage}px);
             }
             ${
               !isLast
