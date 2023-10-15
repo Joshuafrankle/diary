@@ -102,10 +102,6 @@ function htmlCss(isFirst, isLast) {
             <div class="shadow"></div>`;
   }
 
-  console.log(page);
-  console.log(style);
-  console.log("---------");
-
   styles.innerHTML += style;
   pages.innerHTML += page;
 }
