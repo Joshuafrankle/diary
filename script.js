@@ -51,19 +51,14 @@ const data = [
     continuation: false,
   },
   {
-    date: "21 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
-    continuation: false,
-  },
-  {
-    date: "22 Jan 2019",
+    date: "20 Jan 2019",
     txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
     continuation: false,
   },
 ];
 
 const lastIndex = data.length - 1;
-const totalPages = data.length + 1;
+const totalPages = data.length + 2;
 let currentPage = 0;
 
 function htmlCss(isFirst, isLast) {
@@ -75,7 +70,7 @@ function htmlCss(isFirst, isLast) {
               z-index: ${totalPages};
             }
             .book .paper.first .front {
-              transform: translateZ(0.${totalPages}px);
+              transform: translateZ(${totalPages / 10}px);
             }`;
   }
 
@@ -90,7 +85,7 @@ function htmlCss(isFirst, isLast) {
               z-index: ${totalPages - currentPage};
             }
             .book .paper.page-${currentPage} .front {
-              transform: translateZ(0.${totalPages - currentPage}px);
+              transform: translateZ(${(totalPages - currentPage) / 10}px);
             }
             ${
               !isLast
@@ -106,6 +101,10 @@ function htmlCss(isFirst, isLast) {
               <div class="bottom"></div>
             <div class="shadow"></div>`;
   }
+
+  console.log(page);
+  console.log(style);
+  console.log("---------");
 
   styles.innerHTML += style;
   pages.innerHTML += page;
