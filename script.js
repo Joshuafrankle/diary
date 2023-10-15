@@ -15,10 +15,12 @@ fontSize.medium = Math.max(fontSize.medium * ratio, 10);
 const pages = document.getElementById("pages");
 const styles = document.createElement("style");
 
+// 208 max letters
+
 const data = [
   {
     date: "15 Jan 2019",
-    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+    txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetu",
     continuation: false,
   },
   {
@@ -119,7 +121,7 @@ data.forEach((val, index) => {
       text: val.txt,
       y: 20,
       x: posX,
-      duration: 1000,
+      duration: val.txt.length > 100 ? 6000 : 3000,
     },
   ];
   const datObj = {
